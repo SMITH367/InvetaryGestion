@@ -14,7 +14,7 @@ app.use((req, res, next) => {
 
 app.use(express.json())
 
-app.use(require('./routes/rutas'))
+app.use(require('./routes/routes'))
 
 
 app.listen(app.get('port'),()=>{

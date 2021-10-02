@@ -1,4 +1,4 @@
-## This is a simple API to manipulation of a inventary gestion database
+## This is a simple API to manipulation of products database
 
 
 

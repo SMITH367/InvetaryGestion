@@ -13,7 +13,7 @@ router.get('/products', (req, res) => {
         }
     })
 })
-router.get('/:id', (req, res) => {
+router.get('/products/:id', (req, res) => {
     let id = req.params.id
     conexionmysql.query('SELECT * FROM productos WHERE codigo = ?', [id], (err,rows,fields) => {
         if (!err) {

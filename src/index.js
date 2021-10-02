@@ -18,6 +18,6 @@ app.use(require('./routes/rutas'))
 
 
 app.listen(app.get('port'),()=>{
-    console.log('server en el puerto 3k')
+    console.log('server en el puerto ',app.get('port'))
 })
 

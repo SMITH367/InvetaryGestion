@@ -22,6 +22,8 @@ router.get('/products/:id', (req, res) => {
             console.log(err)
         }
     })
-    
 })
+
+
+
 module.exports = router 

@@ -1,4 +1,6 @@
-## This is a simple inventary gestion.
+## This is a fullstack javascript application.
+
+### Simple invetantary gestion created with Node, Express, Mysql and Vanilla Js
 
 Steps for install.
 

@@ -1,8 +1,13 @@
-## This is a simple API to manipulation of products database
+## This is a simple inventary gestion.
+
+Steps for install.
+
+Run npm install in the proyect and run npm start to start the server.
+
+Open the index.html in an localserver to view the front end 
 
 
-
-This api has the routes: 
+The API has the routes: 
 
 ##### /products 
 {

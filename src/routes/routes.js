@@ -38,8 +38,6 @@ router.post('/products', (req, res) => {
 router.put('/products/:id', (req, res) => {
     let data = req.body
     let id = req.params.id
-    console.log(data)
-    console.log(id)
     conexionMysql.query('UPDATE productos SET ? WHERE codigo = ? ', [data, id], (err, rows, fields) => {
         if (err) res.send(err);
         else {
@@ -50,7 +48,6 @@ router.put('/products/:id', (req, res) => {
 router.delete('/products/:id', (req, res) => {
 
     let data = req.params.id
-    console.log(data)
     conexionMysql.query('DELETE FROM productos WHERE codigo = ?', [data], (err, rows, fields) => {
         if (err) res.send(err)
         else {

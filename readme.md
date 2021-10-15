@@ -1,6 +1,6 @@
-## This is a fullstack javascript application.
+## This is a Backend javascript application.
 
-### Simple invetantary gestion created with Node, Express, Mysql and Vanilla Js
+### Simple invetantary gestion API created with Node, Express and Mysql.
 
 Steps for install.
 

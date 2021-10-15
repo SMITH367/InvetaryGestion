@@ -6,7 +6,7 @@ Steps for install.
 
 Run npm install in the proyect and run npm start to start the server.
 
-Open the index.html in an localserver to view the front end 
+Configure the database.
 
 
 The API has the routes: 

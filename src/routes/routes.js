@@ -2,10 +2,10 @@ const express = require('express')
 const router = express.Router()
 
 const conexionMysql = require('../database')
-
+const query = require('./querys')
 
 router.get('/products', (req, res) => {
-    conexionMysql.query('SELECT * FROM productos', (err,rows,fields) => {
+    conexionMysql.query(query.select, (err,rows,fields) => {
         if (!err) {
             res.status(200).send(rows);
         } else {
@@ -15,7 +15,7 @@ router.get('/products', (req, res) => {
 })
 router.get('/products/:id', (req, res) => {
     let id = req.params.id
-    conexionMysql.query('SELECT * FROM productos WHERE codigo = ?', [id], (err,rows,fields) => {
+    conexionMysql.query(query.selectByid, [id], (err,rows,fields) => {
         if (!err) {
             res.json(rows)
         } else {
@@ -27,7 +27,7 @@ router.get('/products/:id', (req, res) => {
 router.post('/products', (req, res) => {
 
     let data = req.body
-    conexionMysql.query('INSERT INTO productos SET ?', [data], (err, rows, fields) => {
+    conexionMysql.query(query.save, [data], (err, rows, fields) => {
         if (err) res.send(err)
         else {
             res.json("Product added");
@@ -38,7 +38,7 @@ router.post('/products', (req, res) => {
 router.put('/products/:id', (req, res) => {
     let data = req.body
     let id = req.params.id
-    conexionMysql.query('UPDATE productos SET ? WHERE codigo = ? ', [data, id], (err, rows, fields) => {
+    conexionMysql.query(query.update, [data, id], (err, rows, fields) => {
         if (err) res.send(err);
         else {
             res.json("Update complete")
@@ -48,7 +48,7 @@ router.put('/products/:id', (req, res) => {
 router.delete('/products/:id', (req, res) => {
 
     let data = req.params.id
-    conexionMysql.query('DELETE FROM productos WHERE codigo = ?', [data], (err, rows, fields) => {
+    conexionMysql.query(query.clear, [data], (err, rows, fields) => {
         if (err) res.send(err)
         else {
             res.json("Product deleted");

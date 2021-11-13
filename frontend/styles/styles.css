@@ -1,14 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+}
 
-.container{
+td {
+    line-break: 3em;
+}
+
+.show-data {
     width: 100%;
 }
 
-.form-data{
-    text-align: center;
-    margin:auto;
+.container {
+
+    margin-top: 20px;
 }
 
+.form-data {
+    text-align: center;
+    margin: auto;
+    width: 80%;
+}
 
-.center{
+.form-data-input {
+    width: 40%;
+    margin:7px;
+}
+
+.form-data-btn {
+    width: 20%;
+    margin: 10px 0px;
+}
+
+.center {
     text-align: center;
 }

@@ -31,7 +31,13 @@ td {
     width: 20%;
     margin: 10px 0px;
 }
-
+.deleteBtn{
+    border:none;
+    color:red;
+}
+.bggray{
+    background-color:rgb(211, 211, 211);
+}
 .center {
     text-align: center;
 }

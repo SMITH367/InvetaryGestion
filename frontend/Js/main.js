@@ -1,1 +1,3 @@
-const dataProducts = fetch()
+import { getData } from "./draw.js";
+
+getData()

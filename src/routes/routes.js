@@ -4,6 +4,8 @@ const router = express.Router()
 const conexionMysql = require('../database')
 const query = require('./querys')
 
+
+
 router.get('/products', (req, res) => {
     conexionMysql.query(query.select, (err,rows,fields) => {
         if (!err) {
@@ -13,6 +15,7 @@ router.get('/products', (req, res) => {
         }
     })
 })
+
 router.get('/products/:id', (req, res) => {
     let id = req.params.id
     conexionMysql.query(query.selectByid, [id], (err,rows,fields) => {

@@ -1,4 +1,3 @@
-
 const bodyTable = document.getElementById("bodyTable")
 
 const url = 'http://localhost:3000/products'
@@ -6,25 +5,27 @@ const url = 'http://localhost:3000/products'
 
 const getData = async () => {
 
-    const res = await fetch(url)
+    const res = await fetch(url, {
+        headers: {
+            'authentication': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxfSwiaWF0IjoxNjM2ODU4NzAwfQ.yQRe1Efdp9O4n7tprkU9MAiX9wW8MaT1R6UQqRVtLCA'
+        }
+    })
     const data = await res.json()
 
     drawTable(data)
 }
-const sayHello = () =>
-{
+const sayHello = () => {
     console.log("hello")
 }
 const setBgColor = (id) => {
     if (id % 2 == 0) {
         return 1
-    }
-    else {
+    } else {
         return 0;
     }
 }
 const drawTable = (data) => {
-    
+
     let id = 0;
     data.forEach(element => {
 
@@ -38,8 +39,8 @@ const drawTable = (data) => {
 
         const th = document.createElement("th")
         th.setAttribute("scope", "row")
-        
-       
+
+
 
         const tdId = document.createElement("td")
         const tdName = document.createElement("td")

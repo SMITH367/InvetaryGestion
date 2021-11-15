@@ -1,22 +1,48 @@
-const url = 'http://localhost:3000/login'
+const errorLogin = document.getElementById('errorLogin')
+const urlBackend = 'http://localhost:3000/login'
+const urlAdminMode = 'http://127.0.0.1:5500/frontend/admin/adminMode.html'
 
-const getData = async () => {
+const btnlogin = document.getElementById('login')
+
+
+
+
+
+const getData = async (user,password) => {
     console.log("intento")
     let userData = {
-     "user": "admin",
-     "password": "admin"
+        "user": user,
+        "password": password
     }
-    const res = await fetch(url, {
-        method: 'POST',
-        body:JSON.stringify(userData),
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        }
-    })
-    const token = await res.text()
+    try {
 
-    console.log(token)
-    document.cookie = token
+        const res = await fetch(urlBackend, {
+            method: 'POST',
+            body: JSON.stringify(userData),
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            }
+        })
+        const token = await res.text()
+
+        if (token != 'Forbidden') {
+            document.cookie = token
+            window.location.href = urlAdminMode
+        } else {
+            errorLogin.innerHTML = "Usuario o contraseña incorrectos";
+        }
+
+
+    } catch (err) {
+        console.log(err)
+    }
+
 }
 
-getData()
+btnlogin.addEventListener('click', (e) => {
+    e.preventDefault()
+    let user = document.getElementById('user').value
+    let password = document.getElementById('password').value
+    getData(user,password)
+
+})

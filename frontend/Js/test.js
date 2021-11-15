@@ -14,6 +14,9 @@ const getData = async () => {
         }
     })
     const token = await res.text()
+
     console.log(token)
+    document.cookie = token
 }
+
 getData()

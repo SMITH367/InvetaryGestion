@@ -19,7 +19,7 @@ const verifyLogin = (req, res, next) => {
 const verifyToken = (req,res, next) => {
     const header = req.headers['authentication']
     if (header != undefined) {
-        const token = header.split(" ")[1]
+        const token = header
         req.auth = token
         next();
     } else {
@@ -27,12 +27,12 @@ const verifyToken = (req,res, next) => {
     }
 }
 
-router.get('/products', verifyToken, (req, res) => {
+router.get('/products', (req, res) => {
     
-    jwt.verify(req.auth, 'secretKey', (err, data) => {
-        if (err) {
-            res.send("err");
-        } else {
+    // jwt.verify(req.auth, 'secretKey', (err, data) => {
+    //     if (err) {
+    //         res.send("err");
+    //     } else {
             conexionMysql.query(query.select, (err, rows, fields) => {
                 if (!err) {
                     res.status(200).send(rows);
@@ -40,8 +40,8 @@ router.get('/products', verifyToken, (req, res) => {
                     console.log(err)
                 }
             })
-        }
-    })
+    //     }
+    // })
 
 })
 

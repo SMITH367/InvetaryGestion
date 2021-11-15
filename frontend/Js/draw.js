@@ -2,15 +2,11 @@ const bodyTable = document.getElementById("bodyTable")
 
 const url = 'http://localhost:3000/products'
 
-
 const getData = async () => {
 
-    const res = await fetch(url, {
-        headers: {
-            'authentication': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxfSwiaWF0IjoxNjM2ODU4NzAwfQ.yQRe1Efdp9O4n7tprkU9MAiX9wW8MaT1R6UQqRVtLCA'
-        }
-    })
+    const res = await fetch(url)
     const data = await res.json()
+    console.log(data)
 
     drawTable(data)
 }

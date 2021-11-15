@@ -13,44 +13,56 @@
 </head>
 
 <body class="center">
-      
+
 
     <div class="container">
-      <h1 class='center'>BIENVENIDO, SISTEMA DE GESTION DE INVENTARIO</h1>
-      <h2 class='center'>Manejador de productos</h2>
-
-        <form action="" class="form-data center">
-
-            <input class="form-data-input" type="number" name="Codigo" id="" placeholder="Codigo">
-            <input class="form-data-input" type="text" name="Nombre" id="" placeholder="Nombre">
-            <input class="form-data-input" type="number" name="Precio" id="" placeholder="Precio">
-            <input class="form-data-input"  type="number" name="Precio" id="" placeholder="Inventario">
-
-            <button class="form-data-btn" type="submit">Agregar</button>
-            <button class="form-data-btn" type="submit">Actualizar</button>
-
+        <h1 class='center'>BIENVENIDO, SISTEMA DE GESTION DE INVENTARIO</h1>
+        <h2 class='center'>Manejador de productos</h2>
+        <form action="">
+            <input type="number" placeholder="Buscar por ID" id="searchById">
+            <input type="submit" id="SearchIdBtn" value="Buscar por id">
         </form>
 
+        <div class="search">
+            
+            <div class="searchingId">
+                <h3 class="center" id="buscandoID">Buscado con el id</h3>
+
+                <label for="">Id <p id="idSearched"> </p> </label>
+                <label for="">Nombre <p id="nameSearched"> </p> </label>
+
+                <label for="">Precio <p id="priceSearched"> </p> </label>
+                <label for="">Inventario <p id="inventSearched"> </p> </label>
+            </div>
+
+            
+        </div>
+
+
+
+
     </div>
-<table class="table center show-data">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Inventario</th>
-            <th scope="col">Borrar</th>
-        </tr>
-    </thead>
-    <tbody id="bodyTable">
-        
-    </tbody>
-</table>
+    <a href="./login.html">Inicia sesion</a>
+    <h3 class="center">Todos los productos</h3>
+    <table class="table center show-data">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Inventario</th>
+                <th scope="col">Borrar</th>
+            </tr>
+        </thead>
+        <tbody id="bodyTable">
+
+        </tbody>
+    </table>
 
 
-<script src="./Js/draw.js" type="module"></script>
-<script src="./Js/main.js" type="module"></script>
-<script src="./Js/validation.js"></script>
+    <script src="./Js/draw.js" type="module"></script>
+    <script src="./Js/main.js" type="module"></script>
+    <script src="./Js/validation.js"></script>
 </body>
 
 </html>

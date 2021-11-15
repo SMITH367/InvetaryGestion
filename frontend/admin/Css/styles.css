@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+td {
+    line-break: 3em;
+}
+
+.show-data {
+    width: 100%;
+}
+
+.container {
+
+    margin-top: 20px;
+}
+
+.form-data {
+    text-align: center;
+    margin: auto;
+    width: 80%;
+}
+
+.form-data-input {
+    width: 40%;
+    margin: 7px;
+}
+
+.form-data-btn {
+    width: 20%;
+    margin: 10px 0px;
+}
+.deleteBtn {
+    border: none;
+    color: red;
+}
+.center {
+    text-align: center;
+}

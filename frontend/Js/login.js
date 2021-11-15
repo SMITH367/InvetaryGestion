@@ -8,7 +8,7 @@ const btnlogin = document.getElementById('login')
 
 
 
-const getData = async (user,password) => {
+const loginUser = async (user,password) => {
     console.log("intento")
     let userData = {
         "user": user,
@@ -26,7 +26,7 @@ const getData = async (user,password) => {
         const token = await res.text()
 
         if (token != 'Forbidden') {
-            document.cookie = token
+            localStorage.setItem('token',token)
             window.location.href = urlAdminMode
         } else {
             errorLogin.innerHTML = "Usuario o contraseña incorrectos";
@@ -43,6 +43,6 @@ btnlogin.addEventListener('click', (e) => {
     e.preventDefault()
     let user = document.getElementById('user').value
     let password = document.getElementById('password').value
-    getData(user,password)
+    loginUser(user,password)
 
 })

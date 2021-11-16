@@ -31,25 +31,39 @@ td {
     width: 20%;
     margin: 10px 0px;
 }
-
+.loginBtn {
+    text-decoration: none;
+    padding: .4em;
+    border-radius: 7px;
+    color:#fff;
+    background: rgb(8, 15, 53);
+}
+.loginBtn:hover{
+    color:#fff;
+    padding:0.5em;
+    transition: all .1s;
+}
 .search {
 
     display: flex;
     justify-content: space-between;
 }
+.search h3{
+    margin-top:10px;
+}
 
 .searchingName {
     width: 70%;
+    padding:1em;
+    margin-bottom: 1em;
 }
 
 .searchingId {
+    padding:1em;
+    margin-bottom: 1em;
     width: 70%;
 }
 
-.deleteBtn {
-    border: none;
-    color: red;
-}
 
 .bggray {
     background-color: rgb(211, 211, 211);

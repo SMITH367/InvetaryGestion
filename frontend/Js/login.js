@@ -6,9 +6,11 @@ const btnlogin = document.getElementById('login')
 
 
 
+const errorInput = () => {
+    errorLogin.innerHTML = "Usuario o contraseña incorrectos";
+}
 
-
-const loginUser = async (user,password) => {
+const loginUser = async (user, password) => {
     console.log("intento")
     let userData = {
         "user": user,
@@ -26,10 +28,10 @@ const loginUser = async (user,password) => {
         const token = await res.text()
 
         if (token != 'Forbidden') {
-            localStorage.setItem('token',token)
+            localStorage.setItem('token', token)
             window.location.href = urlAdminMode
         } else {
-            errorLogin.innerHTML = "Usuario o contraseña incorrectos";
+           errorInput() 
         }
 
 
@@ -38,11 +40,23 @@ const loginUser = async (user,password) => {
     }
 
 }
+const lengthValidation = (string) => {
 
+    console.log(string)
+    if (string.length < 1) {
+        return false
+    } else {
+        return true
+    }
+}
 btnlogin.addEventListener('click', (e) => {
+
     e.preventDefault()
     let user = document.getElementById('user').value
     let password = document.getElementById('password').value
-    loginUser(user,password)
-
+    if (lengthValidation(user) == true && lengthValidation(password) == true) {
+        loginUser(user, password)
+    } else {
+        errorInput()
+    }
 })

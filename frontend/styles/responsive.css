@@ -16,11 +16,26 @@
         align-content: center;
     }
 
+    :root {
+        --px10: 10px
+    }
+
     .searchingName {
         width: 100%;
+        margin-bottom: 2em;
     }
 
     .searchingId {
         width: 100%;
+        padding:1em;
+        margin-top: 1em;
+    }
+
+    #searchByNameBtn {
+        margin: var(--px10)
+    }
+
+    #SearchIdBtn {
+        margin: var(--px10)
     }
 }

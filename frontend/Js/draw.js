@@ -1,4 +1,11 @@
+console.log("hola")
 const bodyTable = document.getElementById("bodyTable")
+const searchByIdBtn = document.getElementById("SearchIdBtn")
+const idSearched = document.getElementById("idSearched")
+const nameSearched = document.getElementById("nameSearched")
+const priceSearched = document.getElementById("priceSearched")
+const invetarySearched = document.getElementById("inventSearched")
+
 
 const url = 'http://localhost:3000/products'
 
@@ -10,6 +17,16 @@ const getData = async () => {
 
     drawTable(data)
 }
+
+const getById = async (id) => {
+
+    const res = await fetch(`${url}/${id}`)
+    const data = await res.json()
+    drawSearchId(data)
+    console.log(data)
+
+}
+
 const sayHello = () => {
     console.log("hello")
 }
@@ -20,9 +37,24 @@ const setBgColor = (id) => {
         return 0;
     }
 }
+
+const drawSearchId = (data) => {
+
+    console.log(data)
+    data.forEach((element) => {
+        idSearched.innerHTML = ` ${element.codigo}`
+        nameSearched.innerHTML = `${element.nombre}`
+        priceSearched.innerHTML = `${element.precio}`
+        invetarySearched.innerHTML = `${element.inventario}`
+
+
+    })
+}
+
 const drawTable = (data) => {
 
-    let id = 0;
+    console.log("entre")
+    let id = 2;
     data.forEach(element => {
 
         const tableList = document.createDocumentFragment()
@@ -43,10 +75,6 @@ const drawTable = (data) => {
         const tdPrice = document.createElement("td")
         const tdInventary = document.createElement("td")
 
-        const deleteBtn = document.createElement("button")
-        deleteBtn.classList.add("deleteBtn")
-        deleteBtn.innerHTML = "Eliminar"
-        deleteBtn.onclick = sayHello
 
         tdId.innerHTML = `${element.codigo}`
         tdName.innerHTML = `${element.nombre}`
@@ -58,7 +86,7 @@ const drawTable = (data) => {
         tr.appendChild(tdName)
         tr.appendChild(tdPrice)
         tr.appendChild(tdInventary)
-        tr.appendChild(deleteBtn)
+
 
         tableList.appendChild(tr)
 
@@ -69,7 +97,27 @@ const drawTable = (data) => {
     });
 
 }
+const lengthValidation = (string) => {
 
+    console.log(string)
+    if (string.length < 1) {
+        return false
+    } else {
+        return true
+    }
+}
+searchByIdBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    const idSearch = document.getElementById("searchById").value
+
+    if (lengthValidation(idSearch) == true) {
+        getById(idSearch)
+    } else {
+        alert("El campo no debe estar vacio")
+    }
+
+
+})
 export {
     getData
 }

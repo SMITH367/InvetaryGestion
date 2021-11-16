@@ -16,7 +16,7 @@ const verifyLogin = (req, res, next) => {
 
 }
 
-const verifyToken = (req,res, next) => {
+const verifyToken = (req, res, next) => {
     const header = req.headers['authentication']
     if (header != undefined) {
         const token = header
@@ -28,18 +28,18 @@ const verifyToken = (req,res, next) => {
 }
 
 router.get('/products', (req, res) => {
-    
+
     // jwt.verify(req.auth, 'secretKey', (err, data) => {
     //     if (err) {
     //         res.send("err");
     //     } else {
-            conexionMysql.query(query.select, (err, rows, fields) => {
-                if (!err) {
-                    res.status(200).send(rows);
-                } else {
-                    console.log(err)
-                }
-            })
+    conexionMysql.query(query.select, (err, rows, fields) => {
+        if (!err) {
+            res.status(200).send(rows);
+        } else {
+            console.log(err)
+        }
+    })
     //     }
     // })
 
@@ -47,7 +47,20 @@ router.get('/products', (req, res) => {
 
 router.get('/products/:id', (req, res) => {
     let id = req.params.id
-    conexionMysql.query(query.selectByid, [id], (err,rows,fields) => {
+    conexionMysql.query(query.selectByid, [id], (err, rows, fields) => {
+        if (!err) {
+            res.json(rows)
+        } else {
+            console.log(err)
+        }
+    })
+})
+
+router.get('/products/search/:name', (req, res) => {
+
+    let name = req.params.name
+
+    conexionMysql.query("SELECT * FROM productos WHERE nombre LIKE " + conexionMysql.escape('%' + name + '%'), (err, rows, fields) => {
         if (!err) {
             res.json(rows)
         } else {
@@ -89,14 +102,16 @@ router.delete('/products/:id', (req, res) => {
 })
 router.post('/login', verifyLogin, (req, res) => {
     const user = {
-        id:1
+        id: 1
     }
-    jwt.sign({ user }, 'secretKey', (err, token) => {
-        
+    jwt.sign({
+        user
+    }, 'secretKey', (err, token) => {
+
         if (err) return err
 
         res.json(token);
     })
 })
 
-module.exports = router 
+module.exports = router

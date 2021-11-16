@@ -24,7 +24,7 @@ td {
 
 .form-data-input {
     width: 40%;
-    margin:7px;
+    margin: 7px;
 }
 
 .form-data-btn {
@@ -32,19 +32,29 @@ td {
     margin: 10px 0px;
 }
 
-.search{
-    padding:4em;
-    display:flex;
-    justify-content:space-between;
+.search {
+
+    display: flex;
+    justify-content: space-between;
 }
 
-.deleteBtn{
-    border:none;
-    color:red;
+.searchingName {
+    width: 70%;
 }
-.bggray{
-    background-color:rgb(211, 211, 211);
+
+.searchingId {
+    width: 70%;
 }
+
+.deleteBtn {
+    border: none;
+    color: red;
+}
+
+.bggray {
+    background-color: rgb(211, 211, 211);
+}
+
 .center {
     text-align: center;
 }

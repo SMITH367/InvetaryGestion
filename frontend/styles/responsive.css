@@ -7,4 +7,20 @@
     .form-data-btn {
         width: 40%;
     }
+
+    .search {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: center;
+    }
+
+    .searchingName {
+        width: 100%;
+    }
+
+    .searchingId {
+        width: 100%;
+    }
 }

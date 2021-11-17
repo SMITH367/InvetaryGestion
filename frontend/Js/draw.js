@@ -1,4 +1,3 @@
-console.log("hola")
 const bodyTable = document.getElementById("bodyTable")
 const searchByIdBtn = document.getElementById("SearchIdBtn")
 const idSearched = document.getElementById("idSearched")
@@ -19,7 +18,6 @@ const getData = async () => {
 
     const res = await fetch(url)
     const data = await res.json()
-    console.log(data)
 
     drawTable(data)
 }
@@ -29,7 +27,6 @@ const getById = async (id) => {
     const res = await fetch(`${url}/${id}`)
     const data = await res.json()
     drawSearchId(data)
-    console.log(data)
 
 }
 
@@ -40,9 +37,6 @@ const getByName = async (name) => {
     console.log(data)
 }
 
-const sayHello = () => {
-    console.log("hello")
-}
 const setBgColor = (id) => {
     if (id % 2 == 0) {
         return 1
@@ -53,7 +47,6 @@ const setBgColor = (id) => {
 
 const drawSearchId = (data) => {
 
-    console.log(data)
     if (data.length > 0) {
         data.forEach((element) => {
             idSearched.innerHTML = `<br> ${element.codigo}`
@@ -101,7 +94,6 @@ const drawSearchName = (data) => {
 
 const drawTable = (data) => {
 
-    console.log("entre")
     let id = 2;
     data.forEach(element => {
 

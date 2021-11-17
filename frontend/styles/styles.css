@@ -43,6 +43,12 @@ td {
     padding:0.5em;
     transition: all .1s;
 }
+.search-btn{
+    padding: .1em;
+ border-radius: 7px;
+ color:#fff;
+ background: rgb(8, 15, 53);
+}
 .search {
 
     display: flex;
@@ -67,6 +73,15 @@ td {
 
 .bggray {
     background-color: rgb(211, 211, 211);
+}
+
+.footer{
+    width: 100%;
+    margin-top: 3em;
+    height:100px;
+    background: rgb(7, 7, 49);
+    color:#fff;
+
 }
 
 .center {

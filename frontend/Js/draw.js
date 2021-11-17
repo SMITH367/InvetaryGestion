@@ -5,6 +5,12 @@ const idSearched = document.getElementById("idSearched")
 const nameSearched = document.getElementById("nameSearched")
 const priceSearched = document.getElementById("priceSearched")
 const invetarySearched = document.getElementById("inventSearched")
+const searchByNameBtn = document.getElementById("searchByNameBtn")
+
+const idSearched2 = document.getElementById("idSearched2")
+const nameSearched2 = document.getElementById("nameSearched2")
+const priceSearched2 = document.getElementById("priceSearched2")
+const invetarySearched2 = document.getElementById("inventSearched2")
 
 
 const url = 'http://localhost:3000/products'
@@ -27,6 +33,13 @@ const getById = async (id) => {
 
 }
 
+const getByName = async (name) => {
+    const res = await fetch(`${url}/search/${name}`)
+    const data = await res.json()
+    drawSearchName(data)
+    console.log(data)
+}
+
 const sayHello = () => {
     console.log("hello")
 }
@@ -41,14 +54,49 @@ const setBgColor = (id) => {
 const drawSearchId = (data) => {
 
     console.log(data)
-    data.forEach((element) => {
-        idSearched.innerHTML = ` ${element.codigo}`
-        nameSearched.innerHTML = `${element.nombre}`
-        priceSearched.innerHTML = `${element.precio}`
-        invetarySearched.innerHTML = `${element.inventario}`
+    if (data.length > 0) {
+        data.forEach((element) => {
+            idSearched.innerHTML = `<br> ${element.codigo}`
+            nameSearched.innerHTML = `<br> ${element.nombre}`
+            priceSearched.innerHTML = `<br>${element.precio}`
+            invetarySearched.innerHTML = `<br>${element.inventario}`
+        })
+    } else {
+        alert("Producto no encontrado")
+    }
+
+}
+
+const drawSearchName = (data) => {
+    if (data.length > 1) {
+        idSearched2.innerHTML = ``
+        nameSearched2.innerHTML = ``
+        priceSearched2.innerHTML = ``
+        invetarySearched2.innerHTML = ``
+
+        data.forEach((element) => {
+
+            idSearched2.innerHTML += ` <br> ${element.codigo}`
+            nameSearched2.innerHTML += ` <br> ${element.nombre}`
+            priceSearched2.innerHTML += ` <br> ${element.precio}`
+            invetarySearched2.innerHTML += `<br> ${element.inventario}`
 
 
-    })
+        })
+    } else if (data.length == 1) {
+        data.forEach((element) => {
+
+            idSearched2.innerHTML = ` <br> ${element.codigo}`
+            nameSearched2.innerHTML = ` <br> ${element.nombre}`
+            priceSearched2.innerHTML = ` <br> ${element.precio}`
+            invetarySearched2.innerHTML = `<br> ${element.inventario}`
+
+
+        })
+    } else {
+        alert("producto no encontrado")
+    }
+
 }
 
 const drawTable = (data) => {
@@ -116,6 +164,16 @@ searchByIdBtn.addEventListener('click', (e) => {
         alert("El campo no debe estar vacio")
     }
 
+
+})
+searchByNameBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    const searchByName = document.getElementById("searchByName").value
+    if (lengthValidation(searchByName) == true) {
+        getByName(searchByName)
+    } else {
+        alert("El campo no debe estar vacio")
+    }
 
 })
 export {

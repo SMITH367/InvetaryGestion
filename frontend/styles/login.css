@@ -1,0 +1,27 @@
+
+.form-login{
+    margin:auto;
+    display: flex;
+    flex:wrap;
+    justify-content: center;
+    width:40%;
+}
+.form-login input {
+    width: 90%;
+    padding:1em 0;
+    margin:20px 0px;
+}
+.loginBtn{
+    padding:.6em 0;
+    width:10em;
+    background-color: rgb(10, 24, 36);
+    color:#fff;
+}
+.btn-back{
+    background-color: rgb(10, 24, 36);
+    color:#fff;
+    text-decoration: none;
+}
+.center {
+    text-align: center;
+}

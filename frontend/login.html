@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/login.css">
     <title>Document</title>
 </head>
+
 <body>
 
-    <h1>Iniciar como administrador</h1>
+    <h1 class="container center">Iniciar como administrador</h1>
+    <a href="./index.html" class="btn-back"> <- Volver  </a>
 
-    <form action="">
-        <input type="text" name="" id="user">
-        <input type="password" name="" id="password">
-        <input type="submit" value="Iniciar sesion" id="login">
-    </form>
+    <div class="container center form-login">
+        <form action="">
+            <input type="text" name="" id="user">
+            <input type="password" name="" id="password">
+            <button class="loginBtn" id="login">Iniciar sesion</button>
+        </form>
 
-    <a href="./index.html">Volver</a>
 
-    <p id="errorLogin"></p>
-    
+        <p id="errorLogin"></p>
 
-    
+    </div>
+
+
     <script src="./Js/login.js"></script>
     <script src="./Js/validation.js"></script>
 </body>
+
 </html>

@@ -25,16 +25,35 @@ td {
 .form-data-input {
     width: 40%;
     margin: 7px;
-    border: solid .1px black;
+    border: solid .1px rgb(161, 161, 161);
 }
 
 .form-data-btn {
     width: 20%;
     margin: 10px 0px;
+    padding: .2em;
+    border-radius: 7px;
+    color: #fff;
+    background: rgb(8, 15, 53);
+    border: none;
+    
 }
+
+.btnLogout {
+    padding: .1em;
+    border-radius: 7px;
+    color: #fff;
+    background: rgb(8, 15, 53);
+}
+
+
 .table {
-    max-width:100%;
+    max-width: 100%;
 }
+.bggray{
+    background-color: rgb(211, 211, 211);
+}
+
 .deleteBtn {
     border: none;
     color: red;
@@ -42,12 +61,14 @@ td {
 
 
 .footer {
-    
+
     margin-top: 3em;
     height: 100px;
 
 }
-
+.mrgtop{
+    margin-top: 1em;
+}
 .center {
     text-align: center;
 }

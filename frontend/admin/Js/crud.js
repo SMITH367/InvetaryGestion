@@ -7,27 +7,36 @@ class Crud {
     }
 
     async getData() {
+        try {
+            const res = await fetch(this.url)
+            const data = await res.json()
+            console.log(data)
+            drawTable(data)
 
-        const res = await fetch(this.url)
-        const data = await res.json()
-        console.log(data)
-        drawTable(data)
+        } catch (err) {
+            console.log(err)
+        }
 
     }
     async postData(productToAdd) {
 
-        const res = await fetch(this.url, {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                authentication: this.token
-            },
-            body: JSON.stringify(productToAdd)
-        })
-        const data = await res.json()
-        console.log(data)
-        alert("Producto agregado correctamente")
-        this.getData()
+        try {
+            const res = await fetch(this.url, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    authentication: this.token
+                },
+                body: JSON.stringify(productToAdd)
+            })
+            const data = await res.json()
+            console.log(data)
+            alert("Producto agregado correctamente")
+            this.getData()
+        } catch (err) {
+            console.log(err)
+        }
+
     }
 
 }
@@ -121,7 +130,7 @@ addProductBtn.addEventListener('click', (e) => {
     if (lengthValidation(productToAdd.nombre) == true && lengthValidation(productToAdd.precio) == true && lengthValidation(productToAdd.inventario)) {
         crudActions.postData(productToAdd)
         clearFlieds()
-        
+
     }
 
 })

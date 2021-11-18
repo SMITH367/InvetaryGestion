@@ -38,22 +38,41 @@ class Crud {
         }
 
     }
+    async updateData(id, dataToUpdate) {
+    
+        try {
+            const res = await fetch(this.url + `/${id}`, {
+                method: "PUT",
+                headers: {
+                    'Content-Type': 'application/json',
+                    authentication: this.token
+                },
+                body: JSON.stringify(dataToUpdate)
+            })
+            const data = await res.json()
+            console.log(data)
+            alert("Producto actualizado correctamente")
+            location.reload()
+        } catch (err) {
+            console.log(err)
+        }
+    }
     async deleteItem(id) {
-         try {
-             const res = await fetch(this.url+`/${id}`, {
-                 method: "DELETE",
-                 headers: {
-                     'Content-Type': 'application/json',
-                     authentication: this.token
-                 },
-             })
-             const data = await res.json()
-             console.log(data)
-             alert("Producto agregado correctamente")
-             location.reload()
-         } catch (err) {
-             console.log(err)
-         }
+        try {
+            const res = await fetch(this.url + `/${id}`, {
+                method: "DELETE",
+                headers: {
+                    'Content-Type': 'application/json',
+                    authentication: this.token
+                },
+            })
+            const data = await res.json()
+            console.log(data)
+            alert("Producto agregado correctamente")
+            location.reload()
+        } catch (err) {
+            console.log(err)
+        }
     }
 
 }
@@ -128,6 +147,7 @@ const setBgColor = (id) => {
 }
 
 const lengthValidation = (string) => {
+   
     if (string.length < 1) {
         return false
     } else {
@@ -140,11 +160,33 @@ crudActions.getData()
 
 
 const addProductBtn = document.getElementById("addProductBtn")
+const updateProductBtn = document.getElementById("updateProductBtn")
 
 const deleteItem = (id) => {
     crudActions.deleteItem(id)
 
 }
+
+
+updateProductBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    let codigo = document.getElementById("ident").value
+    let productToUpdate = {
+       
+        nombre: document.getElementById("name").value,
+        precio: document.getElementById("price").value,
+        inventario: document.getElementById("invent").value
+    }
+
+    if (lengthValidation(productToUpdate.nombre) == true && lengthValidation(productToUpdate.precio) == true && lengthValidation(productToUpdate.inventario) && lengthValidation(codigo) == true) {
+        
+        crudActions.updateData(codigo,productToUpdate)
+        clearFlieds()
+    }
+
+})
+
+
 
 addProductBtn.addEventListener('click', (e) => {
     e.preventDefault()
@@ -159,5 +201,4 @@ addProductBtn.addEventListener('click', (e) => {
         clearFlieds()
 
     }
-
 })

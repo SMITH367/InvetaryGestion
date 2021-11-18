@@ -97,13 +97,18 @@ router.put('/products/:id', (req, res) => {
         }
     })
 })
-router.delete('/products/:id', (req, res) => {
-
-    let data = req.params.id
-    conexionMysql.query(query.clear, [data], (err, rows, fields) => {
-        if (err) res.send(err)
-        else {
-            res.json("Product deleted");
+router.delete('/products/:id', verifyToken, (req, res) => {
+    jwt.verify(req.auth, 'secretKey', (err, data) => {
+        if (err) {
+            res.send("err");
+        } else {
+            let data = req.params.id
+            conexionMysql.query(query.clear, [data], (err, rows, fields) => {
+                if (err) res.send(err)
+                else {
+                    res.json("Product deleted");
+                }
+            })
         }
     })
 })

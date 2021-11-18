@@ -32,11 +32,28 @@ class Crud {
             const data = await res.json()
             console.log(data)
             alert("Producto agregado correctamente")
-            this.getData()
+            location.reload()
         } catch (err) {
             console.log(err)
         }
 
+    }
+    async deleteItem(id) {
+         try {
+             const res = await fetch(this.url+`/${id}`, {
+                 method: "DELETE",
+                 headers: {
+                     'Content-Type': 'application/json',
+                     authentication: this.token
+                 },
+             })
+             const data = await res.json()
+             console.log(data)
+             alert("Producto agregado correctamente")
+             location.reload()
+         } catch (err) {
+             console.log(err)
+         }
     }
 
 }
@@ -74,6 +91,11 @@ const drawTable = (data) => {
         const deleteBtn = document.createElement("button")
         deleteBtn.classList.add("deleteBtn")
         deleteBtn.innerHTML = "Eliminar"
+
+        deleteBtn.addEventListener('click', (e) => {
+            deleteItem(element.codigo)
+        })
+
 
 
         tdId.innerHTML = `${element.codigo}`
@@ -118,6 +140,11 @@ crudActions.getData()
 
 
 const addProductBtn = document.getElementById("addProductBtn")
+
+const deleteItem = (id) => {
+    crudActions.deleteItem(id)
+
+}
 
 addProductBtn.addEventListener('click', (e) => {
     e.preventDefault()

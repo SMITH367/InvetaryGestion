@@ -87,13 +87,19 @@ router.post('/products', verifyToken, (req, res) => {
     })
 })
 
-router.put('/products/:id', (req, res) => {
-    let data = req.body
-    let id = req.params.id
-    conexionMysql.query(query.update, [data, id], (err, rows, fields) => {
-        if (err) res.send(err);
-        else {
-            res.json("Update complete")
+router.put('/products/:id',verifyToken, (req, res) => {
+    jwt.verify(req.auth, 'secretKey', (err, data) => {
+        if (err) {
+            res.send("err");
+        } else {
+            let data = req.body
+            let id = req.params.id
+            conexionMysql.query(query.update, [data, id], (err, rows, fields) => {
+                if (err) res.send(err);
+                else {
+                    res.json("Update complete")
+                }
+            })
         }
     })
 })

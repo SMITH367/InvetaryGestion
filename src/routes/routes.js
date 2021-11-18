@@ -69,13 +69,20 @@ router.get('/products/search/:name', (req, res) => {
     })
 })
 
-router.post('/products', (req, res) => {
+router.post('/products', verifyToken, (req, res) => {
 
-    let data = req.body
-    conexionMysql.query(query.save, [data], (err, rows, fields) => {
-        if (err) res.send(err)
-        else {
-            res.json("Product added");
+
+    jwt.verify(req.auth, 'secretKey', (err, data) => {
+        if (err) {
+            res.send("err");
+        } else {
+            let data = req.body
+            conexionMysql.query(query.save, [data], (err, rows, fields) => {
+                if (err) res.send(err)
+                else {
+                    res.json("Product added");
+                }
+            })
         }
     })
 })

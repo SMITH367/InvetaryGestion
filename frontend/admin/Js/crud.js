@@ -1,9 +1,9 @@
-
-
 class Crud {
 
     constructor() {
         this.url = 'http://localhost:3000/products'
+        let tokenString = localStorage.getItem("token")
+        this.token = tokenString.replace(/['"]+/g, '')
     }
 
     async getData() {
@@ -14,7 +14,29 @@ class Crud {
         drawTable(data)
 
     }
+    async postData(productToAdd) {
 
+        const res = await fetch(this.url, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                authentication: this.token
+            },
+            body: JSON.stringify(productToAdd)
+        })
+        const data = await res.json()
+        console.log(data)
+        alert("Producto agregado correctamente")
+        this.getData()
+    }
+
+}
+
+const clearFlieds = () => {
+    document.getElementById("name").value = ""
+    document.getElementById("price").value = ""
+    document.getElementById("invent").value = ""
+    document.getElementById("ident").value = ""
 }
 
 const drawTable = (data) => {
@@ -43,7 +65,7 @@ const drawTable = (data) => {
         const deleteBtn = document.createElement("button")
         deleteBtn.classList.add("deleteBtn")
         deleteBtn.innerHTML = "Eliminar"
-        
+
 
         tdId.innerHTML = `${element.codigo}`
         tdName.innerHTML = `${element.nombre}`
@@ -73,6 +95,33 @@ const setBgColor = (id) => {
         return 0;
     }
 }
-const datos = new Crud()
 
-datos.getData()
+const lengthValidation = (string) => {
+    if (string.length < 1) {
+        return false
+    } else {
+        return true
+    }
+}
+
+const crudActions = new Crud()
+crudActions.getData()
+
+
+const addProductBtn = document.getElementById("addProductBtn")
+
+addProductBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    let productToAdd = {
+        nombre: document.getElementById("name").value,
+        precio: document.getElementById("price").value,
+        inventario: document.getElementById("invent").value
+    }
+
+    if (lengthValidation(productToAdd.nombre) == true && lengthValidation(productToAdd.precio) == true && lengthValidation(productToAdd.inventario)) {
+        crudActions.postData(productToAdd)
+        clearFlieds()
+        
+    }
+
+})

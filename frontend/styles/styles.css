@@ -25,62 +25,70 @@ td {
 .form-data-input {
     width: 40%;
     margin: 7px;
+    border:solid .1px black;
 }
 
 .form-data-btn {
     width: 20%;
     margin: 10px 0px;
 }
+
 .loginBtn {
     text-decoration: none;
     padding: .4em;
     border-radius: 7px;
-    color:#fff;
+    color: #fff;
     background: rgb(8, 15, 53);
 }
-.loginBtn:hover{
-    color:#fff;
-    padding:0.5em;
+
+.loginBtn:hover {
+    color: #fff;
+    padding: 0.5em;
     transition: all .1s;
 }
-.search-btn{
+
+.search-btn {
     padding: .1em;
- border-radius: 7px;
- color:#fff;
- background: rgb(8, 15, 53);
+    border-radius: 7px;
+    color: #fff;
+    background: rgb(8, 15, 53);
 }
+
 .search {
 
     display: flex;
     justify-content: space-between;
 }
-.search h3{
-    margin-top:10px;
+
+.search h3 {
+    margin-top: 10px;
 }
 
 .searchingName {
     width: 70%;
-    padding:1em;
+    padding: 1em;
     margin-bottom: 1em;
 }
 
 .searchingId {
-    padding:1em;
+    padding: 1em;
     margin-bottom: 1em;
     width: 70%;
 }
 
-
+.table {
+    max-width: 100%;
+}
 .bggray {
     background-color: rgb(211, 211, 211);
 }
 
-.footer{
+.footer {
     width: 100%;
     margin-top: 3em;
-    height:100px;
+    height: 100px;
     background: rgb(7, 7, 49);
-    color:#fff;
+    color: #fff;
 
 }
 

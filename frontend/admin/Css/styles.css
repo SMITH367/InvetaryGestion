@@ -36,11 +36,11 @@ td {
     color: #fff;
     background: rgb(8, 15, 53);
     border: none;
-    
+
 }
 
 .btnLogout {
-    padding: .1em;
+    padding: .2em;
     border-radius: 7px;
     color: #fff;
     background: rgb(8, 15, 53);
@@ -50,7 +50,8 @@ td {
 .table {
     max-width: 100%;
 }
-.bggray{
+
+.bggray {
     background-color: rgb(211, 211, 211);
 }
 
@@ -64,11 +65,15 @@ td {
 
     margin-top: 3em;
     height: 100px;
+    background: rgb(8, 15, 53);
+    color:#fff;
 
 }
-.mrgtop{
+
+.mrgtop {
     margin-top: 1em;
 }
+
 .center {
     text-align: center;
 }

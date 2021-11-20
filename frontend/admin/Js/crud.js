@@ -68,7 +68,7 @@ class Crud {
             })
             const data = await res.json()
             console.log(data)
-            alert("Producto agregado correctamente")
+            alert("Producto eliminado correctamente")
             location.reload()
         } catch (err) {
             console.log(err)

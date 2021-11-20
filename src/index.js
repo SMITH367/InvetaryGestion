@@ -3,8 +3,7 @@ const express = require('express')
 const app = express()
 
 app.set('port', 3000)
-app.set('address', '129.151.123.58')
-
+app.set('address','localhost')
 
 //Midelwares
 app.use((req, res, next) => {

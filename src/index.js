@@ -2,7 +2,7 @@ const express = require('express')
 
 const app = express()
 
-app.set('port', 80)
+app.set('port', 3000)
 app.set('address','localhost')
 
 //Midelwares

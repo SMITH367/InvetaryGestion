@@ -5,6 +5,10 @@ const conexionMysql = require('../database')
 const query = require('./querys')
 
 
+setInterval(function () {
+    conexionMysql.query('SELECT 1');
+}, 5000);
+
 const verifyLogin = (req, res, next) => {
 
     console.log(req.body);

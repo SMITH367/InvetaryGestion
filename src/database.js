@@ -7,7 +7,8 @@ const conexion = mysql.createConnection({
     database: "heroku_fabc383a6d56527"
 })
 
-mysql://b44fefd355267e:ec222173@us-cdbr-east-04.cleardb.com/heroku_fabc383a6d56527?reconnect=true
+
+//mysql://b44fefd355267e:ec222173@us-cdbr-east-04.cleardb.com/heroku_fabc383a6d56527?reconnect=true
 conexion.connect((err) => {
     if (err) {
         console.log(err);

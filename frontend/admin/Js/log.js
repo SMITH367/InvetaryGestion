@@ -1,4 +1,4 @@
-const urlLogin = 'http://127.0.0.1:5500/frontend/login.html'
+const urlLogin = 'https://inventarygestion-a5cf0.web.app/login.html'
 
 const url = 'https://inventarygestion.herokuapp.com/products'
 

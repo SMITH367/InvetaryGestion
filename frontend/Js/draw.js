@@ -12,7 +12,7 @@ const priceSearched2 = document.getElementById("priceSearched2")
 const invetarySearched2 = document.getElementById("inventSearched2")
 
 
-const url = 'http://localhost:3000/products'
+const url = 'https://inventarygestion.herokuapp.com/products'
 
 const getData = async () => {
 

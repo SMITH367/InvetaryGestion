@@ -1,5 +1,5 @@
 const errorLogin = document.getElementById('errorLogin')
-const urlBackend = 'http://localhost:3000/login'
+const urlBackend = 'https://inventarygestion.herokuapp.com/login'
 const urlAdminMode = 'http://127.0.0.1:5500/frontend/admin/adminMode.html'
 
 const btnlogin = document.getElementById('login')

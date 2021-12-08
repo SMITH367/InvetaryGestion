@@ -1,7 +1,7 @@
 class Crud {
 
     constructor() {
-        this.url = 'http://localhost:3000/products'
+        this.url = 'https://inventarygestion.herokuapp.com/products'
         let tokenString = localStorage.getItem("token")
         this.token = tokenString.replace(/['"]+/g, '')
     }

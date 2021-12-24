@@ -1,4 +1,4 @@
-## This is a Backend javascript application.
+## This is a Fullstack javascript application.
 
 ### Completed Invetantary gestion fullstack app created with Node, Express and Mysql and Js.
 

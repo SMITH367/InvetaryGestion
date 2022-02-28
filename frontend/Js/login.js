@@ -6,7 +6,7 @@ const btnlogin = document.getElementById('login')
 
 
 if (localStorage.getItem("token") != undefined) {
-    location.href = urlAdminMode;
+    window.location.href = urlAdminMode;
 }
 
 

@@ -5,6 +5,10 @@ const urlAdminMode = 'https://inventarygestion-a5cf0.firebaseapp.com/admin/admin
 const btnlogin = document.getElementById('login')
 
 
+if (localStorage.getItem("token") != undefined) {
+    location.href = urlAdminMode;
+}
+
 
 const errorInput = () => {
     errorLogin.innerHTML = "Usuario o contraseña incorrectos";

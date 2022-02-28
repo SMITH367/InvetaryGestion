@@ -178,10 +178,13 @@ updateProductBtn.addEventListener('click', (e) => {
         inventario: document.getElementById("invent").value
     }
 
-    if (lengthValidation(productToUpdate.nombre) == true && lengthValidation(productToUpdate.precio) == true && lengthValidation(productToUpdate.inventario) && lengthValidation(codigo) == true) {
+    if (lengthValidation(productToUpdate.nombre) == true && productToAdd.precio > 0 && productToAdd.inventario > 0 && lengthValidation(productToUpdate.precio) == true && lengthValidation(productToUpdate.inventario) && lengthValidation(codigo) == true) {
         
         crudActions.updateData(codigo,productToUpdate)
         clearFlieds()
+    }
+    else {
+        alert("Revise todos los campos")
     }
 
 })
@@ -196,9 +199,10 @@ addProductBtn.addEventListener('click', (e) => {
         inventario: document.getElementById("invent").value
     }
 
-    if (lengthValidation(productToAdd.nombre) == true && lengthValidation(productToAdd.precio) == true && lengthValidation(productToAdd.inventario)) {
+    if (lengthValidation(productToAdd.nombre) == true && productToAdd.precio > 0 && productToAdd.inventario > 0 && lengthValidation(productToAdd.precio) == true && lengthValidation(productToAdd.inventario)) {
         crudActions.postData(productToAdd)
         clearFlieds()
-
+    } else {
+        alert("Revise todos los campos")
     }
 })

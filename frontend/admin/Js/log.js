@@ -1,4 +1,4 @@
-const urlLogin = 'https://inventarygest.web.app/login.html'
+const urlLogin = 'https://inventarygest.firebaseapp.com/login.html'
 
 const url = 'https://inventarygestion.herokuapp.com/products'
 

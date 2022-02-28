@@ -1,6 +1,6 @@
 const errorLogin = document.getElementById('errorLogin')
 const urlBackend = 'https://inventarygestion.herokuapp.com/login'
-const urlAdminMode = 'https://inventarygestion-a5cf0.firebaseapp.com/admin/adminMode.html'
+const urlAdminMode = 'https://inventarygest.web.app/admin/adminMode.html'
 
 const btnlogin = document.getElementById('login')
 
